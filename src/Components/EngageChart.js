@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   AnimatedGaugeProgress,
   GaugeProgress,
@@ -16,8 +17,9 @@ const EngageChart = (props) => {
 
   const style = StyleSheet.create({
     chartLabel: {
-      marginTop: 30,
+      marginTop: 8,
       padding: 10,
+      textAlign: 'center',
       fontSize: 20,
       backgroundColor: '#5F5FD4',
       color: '#ffffff',
@@ -36,6 +38,9 @@ const EngageChart = (props) => {
     chartText: {
       fontSize: 30,
     },
+    icon: {
+      textAlign: 'center',
+    },
   });
 
   return (
@@ -44,7 +49,7 @@ const EngageChart = (props) => {
         <AnimatedGaugeProgress
           size={size}
           width={width}
-          fill={89} // passar via props
+          fill={props.percentage}
           cropDegree={cropDegree}
           tintColor="#5F5FD4"
           delay={0}
@@ -52,10 +57,19 @@ const EngageChart = (props) => {
           stroke={[2, 2]} //For a equaly dashed line
           strokeCap="circle">
           <View style={style.chartTxtPosition}>
-            <Text style={style.chartText}>89,5%</Text>
+            <Text style={style.chartText}>{props.chartInnerText}%</Text>
           </View>
         </AnimatedGaugeProgress>
-        <Text style={style.chartLabel}>Engajamento</Text>
+        <Text style={style.icon}>
+          <Icon name="chevron-down" size={20} color="#5F5FD4" />
+        </Text>
+        <Text style={style.icon}>
+          <Icon name="chevron-down" size={20} color="#5F5FD4" />
+        </Text>
+        <Text style={style.icon}>
+          <Icon name="chevron-down" size={20} color="#5F5FD4" />
+        </Text>
+        <Text style={style.chartLabel}>{props.chartLabelText}</Text>
       </View>
     </>
   );
