@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   AnimatedGaugeProgress,
@@ -8,21 +8,32 @@ import {
 // https://www.npmjs.com/package/react-native-simple-gauge
 
 const EngageChart = (props) => {
-  const size = 150;
-  const width = 20;
+  const windowHeight = Dimensions.get('window').height;
+
+  const iconSize = windowHeight * 0.025;
+  const size = windowHeight * 0.23;
+  const width = windowHeight * 0.03;
   const cropDegree = 0;
   const textOffset = width;
   const textWidth = size - textOffset * 2;
   const textHeight = size * (1 - cropDegree / 360) - textOffset * 2;
+  let fontColor = '#ffffff';
+  let backgroundColor = '#5F5FD4';
+
+
+  if (!props.labelChartBackgroundColor) {
+    backgroundColor = '#ffffff';
+    fontColor = '#000000';
+  }
 
   const style = StyleSheet.create({
     chartLabel: {
       marginTop: 8,
       padding: 10,
       textAlign: 'center',
-      fontSize: 20,
-      backgroundColor: '#5F5FD4',
-      color: '#ffffff',
+      fontSize: windowHeight * 0.03,
+      backgroundColor: backgroundColor,
+      color: fontColor,
       fontWeight: '500',
     },
 
@@ -36,7 +47,7 @@ const EngageChart = (props) => {
       justifyContent: 'center',
     },
     chartText: {
-      fontSize: 30,
+      fontSize: windowHeight * 0.045,
     },
     icon: {
       textAlign: 'center',
@@ -61,13 +72,13 @@ const EngageChart = (props) => {
           </View>
         </AnimatedGaugeProgress>
         <Text style={style.icon}>
-          <Icon name="chevron-down" size={20} color="#5F5FD4" />
+          <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
         </Text>
         <Text style={style.icon}>
-          <Icon name="chevron-down" size={20} color="#5F5FD4" />
+          <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
         </Text>
         <Text style={style.icon}>
-          <Icon name="chevron-down" size={20} color="#5F5FD4" />
+          <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
         </Text>
         <Text style={style.chartLabel}>{props.chartLabelText}</Text>
       </View>
