@@ -3,12 +3,14 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'appWiseElders2' do
+target 'WiseEldersApp' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'appWiseElders2Tests' do
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  target 'WiseEldersAppTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +25,10 @@ target 'appWiseElders2' do
   end
 end
 
-target 'appWiseElders2-tvOS' do
-  # Pods for appWiseElders2-tvOS
+target 'WiseEldersApp-tvOS' do
+  # Pods for WiseEldersApp-tvOS
 
-  target 'appWiseElders2-tvOSTests' do
+  target 'WiseEldersApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
