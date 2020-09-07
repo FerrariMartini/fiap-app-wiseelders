@@ -1,7 +1,7 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import AuthScreen from '../screens/AuthScreen';
 import ExecutiveSummaryScreen from '../screens/ExecutiveSummaryScreen';
@@ -10,14 +10,13 @@ import ActivitiesListScreen from '../screens/ActivitiesListScreen';
 import {Icon} from 'react-native-elements';
 import theme from '../constants/theme';
 
-
 //const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
-    return (
-        <NavigationContainer>
-            {/*<Stack.Navigator initialRouteName="Auth">
+  return (
+    <NavigationContainer>
+      {/*<Stack.Navigator initialRouteName="Auth">
                 <Stack.Screen
                     name="Auth"
                     component={AuthScreen}

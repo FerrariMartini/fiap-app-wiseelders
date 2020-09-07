@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import Screen from '../components/Screen';
 import ActivityCard from '../components/ActivityCard/ActivityCard';
-import {Divider} from 'react-native-elements';
+import { Divider } from 'react-native-elements';
 import CycleCard from '../components/CycleCard';
 import {useNavigation} from '@react-navigation/core';
 import {useDispatch, useSelector} from 'react-redux';
@@ -70,9 +70,10 @@ const ActivityDashboardScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    divider: {
-        marginVertical: 10,
-    },
+  divider: {
+    marginVertical: 10,
+    color: Theme.colors.divider,
+  },
 });
 
 export default ActivityDashboardScreen;

@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import React from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import ScreenHeader from './ScreenHeader';
 import theme from '../constants/theme';
 import Loader from './Loader';
@@ -27,14 +27,14 @@ const Screen = ({title, children}) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 10,
-        margin: 0,
-        justifyContent: 'space-between',
-        backgroundColor: theme.colors.white,
-    },
-    scrollContainer: {},
+  container: {
+    flex: 1,
+    padding: 10,
+    margin: 0,
+    justifyContent: 'space-between',
+    backgroundColor: theme.colors.white,
+  },
+  scrollContainer: {},
 });
 
 export default Screen;
