@@ -1,16 +1,16 @@
-import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
-import {GET_EXECUTIVE_SUMMARY_SUCCESS} from '../actions/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    value: null
+    entries: []
 };
 
 const reducer = (state = initialState, action) => {
+    console.log(action);
     switch (action.type) {
-        case GET_EXECUTIVE_SUMMARY_SUCCESS:
+        case actionTypes.GET_ACTIVITIES_SUCCESS:
             return updateObject(state, {
-                value: action.executiveSummary.value
+                entries: action.entries
             });
         default:
             return state;

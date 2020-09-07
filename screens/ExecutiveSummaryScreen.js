@@ -7,20 +7,19 @@ import * as actions from '../store/actions';
 import Screen from '../components/Screen';
 
 const ExecutiveSummaryScreen = () => {
-    const navigation = useNavigation();
-    const dispatch = useDispatch();
-    const {value} = useSelector(state => state.reports);
-
-    useEffect(() => {
-        const load = () => dispatch(actions.getExecutiveSummary());
-        const unsubscribe = navigation.addListener('focus', load);
-        return () => unsubscribe();
-    }, [dispatch]);
+    // const navigation = useNavigation();
+    // const dispatch = useDispatch();
+    // const {value} = useSelector(state => state.reports);
+    //
+    // useEffect(() => {
+    //     const load = () => dispatch(actions.getExecutiveSummary());
+    //     const unsubscribe = navigation.addListener('focus', load);
+    //     return () => unsubscribe();
+    // }, [dispatch]);
 
     return (
         <Screen title="Relatório executivo">
             <Header label="Investimento total das atividades">
-                {value}
             </Header>
         </Screen>
     );

@@ -1,3 +1,3 @@
 export {
-    getExecutiveSummary
-} from './reports'
+    getActivities,
+} from './activities';

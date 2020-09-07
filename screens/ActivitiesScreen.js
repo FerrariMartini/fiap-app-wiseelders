@@ -1,28 +1,43 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import Screen from '../components/Screen';
 import {Card} from 'react-native-elements';
 import ActivityCard from '../components/ActivityCard/ActivityCard';
+import {useNavigation} from '@react-navigation/core';
+import {useDispatch, useSelector} from 'react-redux';
+import * as actions from '../store/actions';
 
 const ActivitiesScreen = () => {
+    const navigation = useNavigation();
+    const dispatch = useDispatch();
+    const {entries} = useSelector(state => state.activities);
+
+    useEffect(() => {
+        const load = () => dispatch(actions.getActivities());
+        const unsubscribe = navigation.addListener('focus', load);
+        return () => unsubscribe();
+    }, [dispatch]);
+
     return (
         <Screen title="Lista de atividades">
-            <Card containerStyle={styles.card}>
-                <ActivityCard
-                    title={'Happy Hour - FIAP'}
-                    subtitle={'Relacionamento'}
-                    totalInvestValue={'R$ 4.934,00'}
-                    dateInit={'12/08/2020'}
-                    dateEnd={'19/09/2020'}
-                    qtyCycle={'4'}
-                    qtyEnroll={'100'}
-                    qtyAttendant={'317'}
-                    percentage={89}
-                    chartInnerText={'89,5'}
-                    chartLabelText={'Engajamento\nTotal'}
-                    labelChartBackgroundColor={false}
-                />
-            </Card>
+            {entries.length > 0 && entries.map(entry => (
+                <Card key={entry.id} containerStyle={styles.card}>
+                    <ActivityCard
+                        title={entry.name}
+                        subtitle={entry.capital}
+                        totalInvestValue={entry.totalInvest}
+                        dateInit={entry.cycleStartDate}
+                        dateEnd={entry.cycleEndDate}
+                        qtyCycle={entry.cycleQuantity.toString()}
+                        qtyEnroll={entry.enrollQuantity.toString()}
+                        qtyAttendant={entry.attendantQuantity.toString()}
+                        percentage={parseInt(entry.percentage)}
+                        chartInnerText={entry.percentage.toFixed(1)}
+                        chartLabelText={'Engajamento\nTotal'}
+                        labelChartBackgroundColor={false}
+                    />
+                </Card>
+            ))}
         </Screen>
     );
 };
