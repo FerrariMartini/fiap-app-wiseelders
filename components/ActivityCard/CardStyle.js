@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import Theme from '../../constants/theme';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -74,10 +75,10 @@ export default StyleSheet.create({
   },
 
   divider: {
-    backgroundColor: '#b1a9ef',
     height: 1,
     width: windowWidth * 0.9,
     alignSelf: 'center',
+    color: Theme.colors.divider,
   },
 
   infoActivity: {

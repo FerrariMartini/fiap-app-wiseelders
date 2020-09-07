@@ -1,3 +1,1 @@
-export {
-    getExecutiveSummary
-} from './reports'
+export { getExecutiveSummary } from './reports';
