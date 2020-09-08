@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
-import Screen from '../components/Screen';
-import {Card} from 'react-native-elements';
-import ActivityCard from '../components/ActivityCard/ActivityCard';
-import {useNavigation} from '@react-navigation/core';
 import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/core';
+import moment from 'moment';
 import * as actions from '../store/actions';
+import {Card} from 'react-native-elements';
+import Screen from '../components/Screen';
+import ActivityCard from '../components/ActivityCard/ActivityCard';
 
 const ActivitiesScreen = () => {
     const navigation = useNavigation();
@@ -26,8 +27,8 @@ const ActivitiesScreen = () => {
                         title={entry.name}
                         subtitle={entry.capital}
                         totalInvestValue={entry.totalInvest}
-                        dateInit={entry.cycleStartDate}
-                        dateEnd={entry.cycleEndDate}
+                        dateStart={moment(entry.cycleStartDate).format('DD/MM/YYYY')}
+                        dateEnd={moment(entry.cycleEndDate).format('DD/MM/YYYY')}
                         qtyCycle={entry.cycleQuantity.toString()}
                         qtyEnroll={entry.enrollQuantity.toString()}
                         qtyAttendant={entry.attendantQuantity.toString()}
