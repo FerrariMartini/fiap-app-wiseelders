@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/core';
 import moment from 'moment';
@@ -19,26 +19,28 @@ const ActivitiesScreen = () => {
         return () => unsubscribe();
     }, [dispatch]);
 
+    const renderActivityEntry = ({item}) => (
+        <Card containerStyle={styles.card}>
+            <ActivityCard
+                title={item.name}
+                subtitle={item.capital}
+                totalInvestValue={item.totalInvest}
+                dateStart={moment(item.cycleStartDate).format('DD/MM/YYYY')}
+                dateEnd={moment(item.cycleEndDate).format('DD/MM/YYYY')}
+                qtyCycle={item.cycleQuantity.toString()}
+                qtyEnroll={item.enrollQuantity.toString()}
+                qtyAttendant={item.attendantQuantity.toString()}
+                percentage={parseInt(item.percentage)}
+                chartInnerText={item.percentage.toFixed(1)}
+                chartLabelText={'Engajamento\nTotal'}
+                labelChartBackgroundColor={false}
+            />
+        </Card>
+    );
+
     return (
         <Screen title="Lista de atividades">
-            {entries.length > 0 && entries.map(entry => (
-                <Card key={entry.id} containerStyle={styles.card}>
-                    <ActivityCard
-                        title={entry.name}
-                        subtitle={entry.capital}
-                        totalInvestValue={entry.totalInvest}
-                        dateStart={moment(entry.cycleStartDate).format('DD/MM/YYYY')}
-                        dateEnd={moment(entry.cycleEndDate).format('DD/MM/YYYY')}
-                        qtyCycle={entry.cycleQuantity.toString()}
-                        qtyEnroll={entry.enrollQuantity.toString()}
-                        qtyAttendant={entry.attendantQuantity.toString()}
-                        percentage={parseInt(entry.percentage)}
-                        chartInnerText={entry.percentage.toFixed(1)}
-                        chartLabelText={'Engajamento\nTotal'}
-                        labelChartBackgroundColor={false}
-                    />
-                </Card>
-            ))}
+            <FlatList data={entries} renderItem={renderActivityEntry}/>
         </Screen>
     );
 };
