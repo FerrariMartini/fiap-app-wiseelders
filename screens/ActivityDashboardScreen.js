@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import Screen from '../components/Screen';
 import ActivityCard from '../components/ActivityCard/ActivityCard';
@@ -13,12 +13,21 @@ const ActivityDashboardScreen = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const {entries} = useSelector(state => state.activities);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         const load = () => dispatch(actions.getActivities());
         const unsubscribe = navigation.addListener('focus', load);
         return () => unsubscribe();
     }, [dispatch]);
+
+    useEffect(() => {
+        if (!scrollRef) {
+            return;
+        }
+        scrollRef.current.scrollTo({x: 0, y: 0, animated: false});
+    });
+
 
     return (
         <Screen title="Dashboard de atividades">
@@ -39,7 +48,7 @@ const ActivityDashboardScreen = () => {
                     labelChartBackgroundColor={false}
                 />
                 <Divider style={styles.divider}/>
-                <ScrollView horizontal={true}>
+                <ScrollView ref={scrollRef} horizontal={true}>
                     {entries[0] && entries[0].cycles.map(item => (
                         <View>
                             <CycleCard
