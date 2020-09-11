@@ -8,7 +8,7 @@ import {Card} from 'react-native-elements';
 import Screen from '../components/Screen';
 import ActivityCard from '../components/ActivityCard/ActivityCard';
 
-const ActivitiesScreen = () => {
+const ActivitiesListScreen = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const {entries} = useSelector(state => state.activities);
@@ -67,4 +67,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ActivitiesScreen;
+export default ActivitiesListScreen;
