@@ -2,8 +2,16 @@ import React from 'react';
 import { Text, View, StyleSheet, Dimensions } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import EngageChart from './EngageChart';
+import chartData from '../models/chartData';
 
-const CycleCard = (props) => {
+const cycleCard = {
+  cycleNumber: String,
+  qtyAttendant: String,
+  investValue: String,
+  chartData,
+};
+
+const CycleCard = (props = cycleCard) => {
   const windowHeight = Dimensions.get('window').height;
 
   const styles = StyleSheet.create({
@@ -37,7 +45,6 @@ const CycleCard = (props) => {
     box1: {
       flex: 1,
       margin: 10,
-      // backgroundColor: '#666',
     },
     box2: {
       flex: 1,
@@ -47,7 +54,6 @@ const CycleCard = (props) => {
     },
 
     button: {
-      // backgroundColor: ,
       width: 120,
       alignSelf: 'center',
     },
@@ -78,7 +84,8 @@ const CycleCard = (props) => {
           percentage={props.percentage}
           chartInnerText={props.chartInnerText}
           chartLabelText={props.chartLabelText}
-          labelChartBackgroundColor={props.labelChartBackgroundColor}
+          haslabelChartBkgColor={props.haslabelChartBkgColor}
+          isSecondaryChartColor={props.isSecondaryChartColor}
         />
       </View>
     </View>

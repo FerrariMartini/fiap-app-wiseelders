@@ -8,7 +8,7 @@ import Theme from '../constants/theme';
 
 const ActivityDashboardScreen = () => {
   return (
-    <Screen title="Dashboard de atividades">
+    <Screen title="Dashboard de Atividades">
       <ActivityCard
         title={'Happy Hour - FIAP'}
         subtitle={'Relacionamento'}
@@ -19,9 +19,10 @@ const ActivityDashboardScreen = () => {
         qtyEnroll={'100'}
         qtyAttendant={'317'}
         percentage={89}
-        chartInnerText={'89,5'}
+        chartInnerText={`${'89,2'}%`}
         chartLabelText={'Engajamento\nTotal'}
-        labelChartBackgroundColor={false}
+        haslabelChartBkgColor={false}
+        isSecondaryChartColor={true}
       />
       <Divider style={styles.divider} />
       <View>
@@ -29,10 +30,11 @@ const ActivityDashboardScreen = () => {
           cycleNumber={'1'}
           qtyAttendant={'317'}
           investValue={'R$ 934,00'}
-          percentage={89}
-          chartInnerText={'89'}
+          percentage={63}
+          chartInnerText={`${'63,2'}%`}
           chartLabelText={'Engajamento'}
-          labelChartBackgroundColor={true}
+          haslabelChartBkgColor={true}
+          isSecondaryChartColor={true}
         />
       </View>
     </Screen>

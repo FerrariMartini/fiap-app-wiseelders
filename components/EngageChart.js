@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { AnimatedGaugeProgress } from 'react-native-simple-gauge';
-// https://www.npmjs.com/package/react-native-simple-gauge
+import { AnimatedGaugeProgress } from 'react-native-simple-gauge'; // https://www.npmjs.com/package/react-native-simple-gauge
+import Theme from '../constants/theme';
+import chartData from '../models/chartData';
 
-const EngageChart = (props) => {
+const EngageChart = (props = chartData) => {
   const windowHeight = Dimensions.get('window').height;
 
   const iconSize = windowHeight * 0.025;
@@ -14,21 +15,27 @@ const EngageChart = (props) => {
   const textOffset = width;
   const textWidth = size - textOffset * 2;
   const textHeight = size * (1 - cropDegree / 360) - textOffset * 2;
-  let fontColor = '#ffffff';
-  let backgroundColor = '#5F5FD4';
+  let fontColor = Theme.colors.white;
+  let chartColor = Theme.colors.primaryChartColor;
+  let chartLabelBkgColor = Theme.colors.primaryChartColor;
 
-  if (!props.labelChartBackgroundColor) {
-    backgroundColor = '#ffffff';
+  if (!props.isSecondaryChartColor) {
+    chartColor = Theme.colors.secondary;
+    chartLabelBkgColor = Theme.colors.secondary;
+  }
+
+  if (!props.haslabelChartBkgColor) {
     fontColor = '#000000';
+    chartLabelBkgColor = Theme.colors.white;
   }
 
   const styles = StyleSheet.create({
     chartLabel: {
       marginTop: 8,
-      padding: 10,
+      padding: 4,
       textAlign: 'center',
       fontSize: windowHeight * 0.03,
-      backgroundColor: backgroundColor,
+      backgroundColor: chartLabelBkgColor,
       color: fontColor,
       fontWeight: '500',
     },
@@ -58,23 +65,23 @@ const EngageChart = (props) => {
           width={width}
           fill={props.percentage}
           cropDegree={cropDegree}
-          tintColor="#5F5FD4"
+          tintColor={chartColor}
           delay={0}
           backgroundColor="#b0c4de"
           stroke={[2, 2]} //For a equaly dashed line
           strokeCap="circle">
           <View style={styles.chartTxtPosition}>
-            <Text style={styles.chartText}>{props.chartInnerText}%</Text>
+            <Text style={styles.chartText}>{props.chartInnerText}</Text>
           </View>
         </AnimatedGaugeProgress>
         <Text style={styles.icon}>
-          <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
+          <Icon name="chevron-down" size={iconSize} color={chartColor} />
         </Text>
         <Text style={styles.icon}>
-          <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
+          <Icon name="chevron-down" size={iconSize} color={chartColor} />
         </Text>
         <Text style={styles.icon}>
-          <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
+          <Icon name="chevron-down" size={iconSize} color={chartColor} />
         </Text>
         <Text style={styles.chartLabel}>{props.chartLabelText}</Text>
       </View>

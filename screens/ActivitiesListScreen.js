@@ -7,7 +7,7 @@ import Theme from '../constants/theme';
 
 const ActivitiesListScreen = () => {
   return (
-    <Screen title="Lista de atividades">
+    <Screen title="Lista de Atividades">
       <Card containerStyle={styles.card}>
         <ActivityCard
           title={'Happy Hour - FIAP'}
@@ -19,9 +19,10 @@ const ActivitiesListScreen = () => {
           qtyEnroll={'100'}
           qtyAttendant={'317'}
           percentage={89}
-          chartInnerText={'89,5'}
+          chartInnerText={`${'89,2'}%`}
           chartLabelText={'Engajamento\nTotal'}
-          labelChartBackgroundColor={false}
+          haslabelChartBkgColor={false}
+          isSecondaryChartColor={true}
         />
       </Card>
     </Screen>

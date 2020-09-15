@@ -17,6 +17,8 @@ const theme = {
     error: '#BF360C',
     warning: '#FFB300',
     divider: '#BDBDBD',
+    primaryChartColor: '#5F5FD4',
+    secondaryChartColor: '#90A4AE',
   },
 };
 
