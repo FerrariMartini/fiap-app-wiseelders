@@ -22,7 +22,7 @@ const ActivityDashboardScreen = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (!scrollRef) {
+        if (!scrollRef || !scrollRef.current) {
             return;
         }
         scrollRef.current.scrollTo({x: 0, y: 0, animated: false});

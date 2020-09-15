@@ -21,11 +21,10 @@ const ActivitiesListScreen = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (!listRef) {
+        if (!listRef || !listRef.current) {
             return;
         }
-        listRef.current.scrollToIndex({animated: true, index: 0});
-
+        listRef.current.scrollToIndex({animated: false, index: 0});
     });
 
     const renderActivityEntry = ({item}) => (

@@ -7,10 +7,12 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import theme from './constants/theme';
 import activitiesReducer from './store/reducers/activities';
+import loaderReducer from './store/reducers/loader';
 import AppNavigator from './navigation/AppNavigator';
 
 const rootReducer = combineReducers({
     activities: activitiesReducer,
+    loader: loaderReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

@@ -2,12 +2,13 @@ import React, {useEffect, useRef} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import ScreenHeader from './ScreenHeader';
 import theme from '../constants/theme';
+import Loader from './Loader';
 
 const Screen = ({title, children}) => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
-        if (!scrollRef) {
+        if (!scrollRef || !scrollRef.current) {
             return;
         }
         scrollRef.current.scrollTo({x: 0, y: 0, animated: false});
@@ -16,9 +17,11 @@ const Screen = ({title, children}) => {
     return (
         <View style={styles.container}>
             {title && <ScreenHeader>{title}</ScreenHeader>}
-            <ScrollView ref={scrollRef} style={styles.scrollContainer}>
-                {children}
-            </ScrollView>
+           <Loader>
+               <ScrollView ref={scrollRef} style={styles.scrollContainer}>
+                   {children}
+               </ScrollView>
+           </Loader>
         </View>
     );
 };
