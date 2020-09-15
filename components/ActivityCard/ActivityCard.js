@@ -5,8 +5,21 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './CardStyle';
 import LifeAspectCircle from '../LifeAspectCircle';
 import EngageChart from '../EngageChart';
+import chartData from '../../models/chartData';
 
-const ActivityCard = (props) => {
+const activityCard = {
+  title: String,
+  subtitle: String,
+  totalInvestValue: String,
+  dateInit: String,
+  dateEnd: String,
+  qtyCycle: String,
+  qtyEnroll: String,
+  qtyAttendant: String,
+  chartData,
+};
+
+const ActivityCard = (props = activityCard) => {
   return (
     <View style={styles.containerWrap}>
       <View style={styles.containerHeader}>
@@ -33,7 +46,7 @@ const ActivityCard = (props) => {
             labelStyle={styles.label}
             inputStyle={styles.disabledText}
             label={'Ciclos da Atividade'}
-            value={`de:${props.dateEnd}`}
+            value={`de:${props.dateInit}`}
           />
           <Input
             disabled
@@ -67,7 +80,8 @@ const ActivityCard = (props) => {
             percentage={props.percentage}
             chartInnerText={props.chartInnerText}
             chartLabelText={props.chartLabelText}
-            labelChartBackgroundColor={props.labelChartBackgroundColor}
+            haslabelChartBkgColor={props.haslabelChartBkgColor}
+            isSecondaryChartColor={props.isSecondaryChartColor}
           />
         </View>
       </View>
