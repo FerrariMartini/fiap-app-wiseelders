@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, YellowBox } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -14,6 +14,13 @@ const rootReducer = combineReducers({
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount',
+  'forwardRef',
+  'Unrecognized WebSocket',
+  'Encountered an error loading page',
+  'redux-persist: rehydrate for',
+]);
 
 const App: () => React$Node = () => {
   return (
