@@ -48,6 +48,7 @@ const ExecutiveSummaryScreen = () => {
         />
       </View>
       <Divider style={styles.divider} />
+      <View style={styles.chartContainer}></View>
     </Screen>
   );
 };
