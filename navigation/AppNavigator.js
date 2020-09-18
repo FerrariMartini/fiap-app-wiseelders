@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AuthScreen from '../screens/AuthScreen';
 import ExecutiveSummaryScreen from '../screens/ExecutiveSummaryScreen';
 import ActivityDashboardScreen from '../screens/ActivityDashboardScreen';
-import ActivitiesScreen from '../screens/ActivitiesScreen';
+import ActivitiesListScreen from '../screens/ActivitiesListScreen';
 import {Icon} from 'react-native-elements';
 import theme from '../constants/theme';
 
@@ -35,7 +35,7 @@ const AppNavigator = () => {
                 />
                 <Stack.Screen
                     name="Activities"
-                    component={ActivitiesScreen}
+                    component={ActivitiesListScreen}
                     options={{title: 'Lista de atividades'}}
                 />
             </Stack.Navigator>*/}
@@ -61,7 +61,7 @@ const AppNavigator = () => {
                 tabBarOptions={{showLabel: false}}>
                 <Tab.Screen name="ExecutiveSummary" component={ExecutiveSummaryScreen}/>
                 <Tab.Screen name="ActivityDashboard" component={ActivityDashboardScreen}/>
-                <Tab.Screen name="Activities" component={ActivitiesScreen}/>
+                <Tab.Screen name="Activities" component={ActivitiesListScreen}/>
             </Tab.Navigator>
         </NavigationContainer>
     );

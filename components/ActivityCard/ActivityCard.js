@@ -33,12 +33,12 @@ const ActivityCard = (props) => {
               labelStyle={styles.label}
               inputStyle={styles.disabledText}
               label={'Ciclos da Atividade'}
-              value={`de:${props.dateEnd}`}
+              value={`de: ${props.dateStart}`}
             />
             <Input
               disabled
               inputStyle={styles.disabledText}
-              value={`até:${props.dateEnd}`}
+              value={`até: ${props.dateEnd}`}
             />
             <Input
               disabled

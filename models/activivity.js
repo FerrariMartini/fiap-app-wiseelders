@@ -4,13 +4,13 @@ class Activivity {
 }
 
 const x = {
-    id: 1,
+    id: '',
     name: 'Happy Hour - Fiap',
     capital: 'Relacionamento', //enum
     lifeAspect: 'Social e Lazer', //enum
     totalInvest: 4934.0,
     cycleStartDate: '2020-09-01T00:00:00Z',
-    cycleEndtDate: '2020-09-09T00:00:00Z',
+    cycleEndDate: '2020-09-09T00:00:00Z',
     cycleQuantity: 4,
     enrollQuantity: 100,
     attendantQuantity: 317,
