@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import wiseEldersClient from '../../models/WiseEldersClient';
+import wiseEldersClient from '../../api/WiseEldersAPI';
 
 /* GET ACTIVITIES
 *******************************************************************/

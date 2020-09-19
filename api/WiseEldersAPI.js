@@ -1,9 +1,9 @@
 import client from 'superagent';
 
-class WiseEldersClient {
+class WiseEldersAPI {
     constructor(baseAddress) {
         this.baseAddress = baseAddress;
-        console.log(baseAddress);
+        console.log(`API base address: ${this.baseAddress}`);
     }
 
     getActivities() {
@@ -14,4 +14,4 @@ class WiseEldersClient {
 }
 
 //TODO: Parametrizar base address
-export default new WiseEldersClient('https://5f56736432f56200168bd5e0.mockapi.io');
+export default new WiseEldersAPI('https://5f56736432f56200168bd5e0.mockapi.io');
