@@ -3,7 +3,7 @@ import client from 'superagent';
 class WiseEldersAPI {
     constructor(baseAddress) {
         this.baseAddress = baseAddress;
-        console.log(baseAddress);
+        console.log(`API base address: ${this.baseAddress}`);
     }
 
     getActivities() {
