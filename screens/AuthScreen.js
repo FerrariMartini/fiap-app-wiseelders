@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Button, Input} from 'react-native-elements';
+import { View, StyleSheet } from 'react-native';
+import { Button, Input } from 'react-native-elements';
 
-const AuthScreen = ({navigation}) => {
+const AuthScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Input
@@ -21,9 +21,9 @@ const AuthScreen = ({navigation}) => {
                 }}
             />
             <Button title="Acessar"
-                    buttonStyle={styles.loginButton}
-                    containerStyle={styles.loginButtonContainer}
-                    onPress={() => navigation.navigate('ExecutiveSummary')}
+                buttonStyle={styles.loginButton}
+                containerStyle={styles.loginButtonContainer}
+                onPress={() => navigation.navigate('ExecutiveSummary')}
             />
         </View>
     );

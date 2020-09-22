@@ -1,27 +1,27 @@
-import React, {useEffect, useRef} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import ScreenHeader from './ScreenHeader';
 import theme from '../constants/theme';
 import Loader from './Loader';
 
-const Screen = ({title, children}) => {
+const Screen = ({ title, children }) => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
         if (!scrollRef || !scrollRef.current) {
             return;
         }
-        scrollRef.current.scrollTo({x: 0, y: 0, animated: false});
+        scrollRef.current.scrollTo({ x: 0, y: 0, animated: false });
     });
 
     return (
         <View style={styles.container}>
             {title && <ScreenHeader>{title}</ScreenHeader>}
-           <Loader>
-               <ScrollView ref={scrollRef} style={styles.scrollContainer}>
-                   {children}
-               </ScrollView>
-           </Loader>
+            <Loader>
+                <ScrollView ref={scrollRef} style={styles.scrollContainer}>
+                    {children}
+                </ScrollView>
+            </Loader>
         </View>
     );
 };

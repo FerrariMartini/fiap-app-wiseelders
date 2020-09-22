@@ -1,17 +1,17 @@
-import React, {useEffect, useRef} from 'react';
-import {FlatList, StyleSheet} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/core';
+import React, { useEffect, useRef } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/core';
 import moment from 'moment';
 import * as actions from '../store/actions';
-import {Card} from 'react-native-elements';
+import { Card } from 'react-native-elements';
 import Screen from '../components/Screen';
 import ActivityCard from '../components/ActivityCard/ActivityCard';
 
 const ActivitiesListScreen = () => {
     const navigation = useNavigation();
     const dispatch = useDispatch();
-    const {entries} = useSelector(state => state.activities);
+    const { entries } = useSelector(state => state.activities);
     const listRef = useRef(null);
 
     useEffect(() => {
@@ -24,10 +24,10 @@ const ActivitiesListScreen = () => {
         if (!listRef || !listRef.current) {
             return;
         }
-        listRef.current.scrollToIndex({animated: false, index: 0});
+        listRef.current.scrollToIndex({ animated: false, index: 0 });
     });
 
-    const renderActivityEntry = ({item}) => (
+    const renderActivityEntry = ({ item }) => (
         <Card containerStyle={styles.card}>
             <ActivityCard
                 title={item.name}
@@ -48,7 +48,7 @@ const ActivitiesListScreen = () => {
 
     return (
         <Screen title="Lista de atividades">
-            <FlatList ref={listRef} data={entries} renderItem={renderActivityEntry}/>
+            <FlatList ref={listRef} data={entries} renderItem={renderActivityEntry} />
         </Screen>
     );
 };

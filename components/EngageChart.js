@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {AnimatedGaugeProgress} from 'react-native-simple-gauge';
+import { AnimatedGaugeProgress } from 'react-native-simple-gauge';
 // https://www.npmjs.com/package/react-native-simple-gauge
 
 const EngageChart = (props) => {
@@ -69,13 +69,13 @@ const EngageChart = (props) => {
                     </View>
                 </AnimatedGaugeProgress>
                 <Text style={styles.icon}>
-                    <Icon name="chevron-down" size={iconSize} color="#5F5FD4"/>
+                    <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
                 </Text>
                 <Text style={styles.icon}>
-                    <Icon name="chevron-down" size={iconSize} color="#5F5FD4"/>
+                    <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
                 </Text>
                 <Text style={styles.icon}>
-                    <Icon name="chevron-down" size={iconSize} color="#5F5FD4"/>
+                    <Icon name="chevron-down" size={iconSize} color="#5F5FD4" />
                 </Text>
                 <Text style={styles.chartLabel}>{props.chartLabelText}</Text>
             </View>

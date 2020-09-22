@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Text} from 'react-native-elements';
+import { View, StyleSheet } from 'react-native';
+import { Text } from 'react-native-elements';
 import theme from '../constants/theme';
 
-const LoaderMessage = ({message}) => (
+const LoaderMessage = ({ message }) => (
     <View style={styles.container}>
         <Text h4 style={styles.textPanel}>{message}</Text>
     </View>
