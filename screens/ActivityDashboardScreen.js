@@ -43,7 +43,7 @@ const ActivityDashboardScreen = () => {
                     qtyEnroll={entries[0].enrollQuantity.toString()}
                     qtyAttendant={entries[0].attendantQuantity.toString()}
                     percentage={parseInt(entries[0].percentage)}
-                    chartInnerText={entries[0].percentage.toFixed(1)}
+                    chartInnerText={`${entries[0].percentage.toFixed(1)}%`}
                     chartLabelText={'Engajamento\nTotal'}
                     labelChartBackgroundColor={false}
                 />
@@ -57,7 +57,7 @@ const ActivityDashboardScreen = () => {
                                 qtyAttendant={item.attendantQuantity}
                                 investValue={item.invest}
                                 percentage={parseInt(item.percentage)}
-                                chartInnerText={parseInt(item.percentage).toString()}
+                                chartInnerText={`${parseInt(item.percentage).toString()}%`}
                                 chartLabelText={'Engajamento'}
                                 labelChartBackgroundColor={true}
                             />
