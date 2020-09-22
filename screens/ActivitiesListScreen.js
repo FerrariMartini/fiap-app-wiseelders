@@ -39,7 +39,7 @@ const ActivitiesListScreen = () => {
                 qtyEnroll={item.enrollQuantity.toString()}
                 qtyAttendant={item.attendantQuantity.toString()}
                 percentage={parseInt(item.percentage)}
-                chartInnerText={item.percentage.toFixed(1)}
+                chartInnerText={`${entries[0].percentage.toFixed(1)}%`}
                 chartLabelText={'Engajamento\nTotal'}
                 labelChartBackgroundColor={false}
             />

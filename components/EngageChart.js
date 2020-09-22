@@ -65,7 +65,7 @@ const EngageChart = (props) => {
                     stroke={[2, 2]} //For a equaly dashed line
                     strokeCap="circle">
                     <View style={styles.chartTxtPosition}>
-                        <Text style={styles.chartText}>{props.chartInnerText}%</Text>
+                        <Text style={styles.chartText}>{props.chartInnerText}</Text>
                     </View>
                 </AnimatedGaugeProgress>
                 <Text style={styles.icon}>
