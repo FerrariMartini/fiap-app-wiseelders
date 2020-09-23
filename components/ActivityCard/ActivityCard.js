@@ -22,7 +22,7 @@ const ActivityCard = (props) => {
         </View>
         <View style={styles.investBox}>
           <Text style={styles.investSubtitle}>Invest. Total </Text>
-          <Text style={styles.investValue}>{props.totalInvestValue}</Text>
+          <Text style={styles.investValue}>{`R$ ${props.totalInvestValue}`}</Text>
         </View>
       </View>
       <Divider style={styles.divider} />
