@@ -30,7 +30,7 @@ const ActivityDashboardScreen = () => {
 
 
     return (
-        <Screen title="Dashboard de atividades">
+        <Screen title="Dashboard de Atividades">
             {entries[0] &&
                 <>
                     <ActivityCard
@@ -54,7 +54,7 @@ const ActivityDashboardScreen = () => {
                                 <CycleCard
                                     key={item.cycleNumber}
                                     cycleNumber={item.cycleNumber}
-                                    qtyAttendant={item.attendantQuantity}
+                                    qtyAttendant={item.attendantQuantity.toString()}
                                     investValue={item.invest}
                                     percentage={parseInt(item.percentage)}
                                     chartInnerText={`${parseInt(item.percentage).toString()}%`}
