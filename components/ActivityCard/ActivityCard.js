@@ -18,11 +18,11 @@ const ActivityCard = (props) => {
           </View>
         </View>
         <View style={styles.circleBox}>
-          <LifeAspectCircle />
+          <LifeAspectCircle lifeAspectTitle={props.lifeAspectTitle} />
         </View>
         <View style={styles.investBox}>
           <Text style={styles.investSubtitle}>Invest. Total </Text>
-          <Text style={styles.investValue}>{`R$ ${props.totalInvestValue}`}</Text>
+          <Text style={styles.investValue}>{`${props.totalInvestValue}`}</Text>
         </View>
       </View>
       <Divider style={styles.divider} />
@@ -68,6 +68,7 @@ const ActivityCard = (props) => {
             chartInnerText={props.chartInnerText}
             chartLabelText={props.chartLabelText}
             labelChartBackgroundColor={props.labelChartBackgroundColor}
+            isSecondaryChartColor={true}
           />
         </View>
       </View>

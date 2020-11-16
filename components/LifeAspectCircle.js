@@ -4,34 +4,34 @@ import { View, StyleSheet, Text, Dimensions } from 'react-native';
 const LifeAspectCircle = (props) => {
   const windowHeight = Dimensions.get('window').height;
 
-  const circleSize = windowHeight * 0.09;
+  const squareSize = windowHeight * 0.08;
 
   const styles = StyleSheet.create({
-    circle: {
-      width: circleSize,
-      height: circleSize,
-      borderRadius: circleSize,
+    square: {
+      width: squareSize,
+      height: squareSize,
+      borderRadius: 5,
       backgroundColor: '#ff5050',
+      padding: 2,
     },
 
     innerTitle: {
       display: 'flex',
       flexDirection: 'column',
       textAlignVertical: 'center',
-      height: circleSize,
+      height: squareSize,
       color: '#ffffff',
       textAlign: 'center',
       alignItems: 'center',
-      fontSize: windowHeight * 0.02,
+      fontSize: windowHeight * 0.015,
     },
   });
 
-  const innerText = 'Social e Lazer';
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.circle}>
-          <Text style={styles.innerTitle}>{innerText}</Text>
+        <View style={styles.square}>
+          <Text style={styles.innerTitle}>{props.lifeAspectTitle}</Text>
         </View>
       </View>
     </>

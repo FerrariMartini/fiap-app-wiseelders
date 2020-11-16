@@ -79,6 +79,7 @@ const CycleCard = (props) => {
           chartInnerText={props.chartInnerText}
           chartLabelText={props.chartLabelText}
           labelChartBackgroundColor={props.labelChartBackgroundColor}
+          isSecondaryChartColor={true}
         />
       </View>
     </View>
