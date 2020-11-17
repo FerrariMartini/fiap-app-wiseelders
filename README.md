@@ -9,7 +9,7 @@ Projeto criado em `react-native`, utilizando **React Native CLI**.
 - [Redux](https://redux.js.org/) e [React Redux](https://react-redux.js.org/) : gerenciamento do estado da aplicação
 - [Redux Thunk](https://github.com/reduxjs/redux-thunk): middleware para implementação de fluxos de dados assíncronos no Redux, tais como chamadas a API's.
 - [React Native Elements](https://reactnativeelements.com/): UI toolkit para criação de aplicativos em React Native
-- [Superagent](https://visionmedia.github.io/superagent/): biblioteca para realização de chamadas HTTP
+- [Axios](https://github.com/axios/axios): biblioteca para realização de chamadas HTTP
 - [moment](https://momentjs.com/) para manipulação de datas
 
 ## Organização do projeto
@@ -26,23 +26,20 @@ Principais, componentes, arquivos e diretórios do projeto:
 
 ## Padrões para realização de chamadas HTTP
 
-Classe para encapsular as chamadas HTTP ao *backend*:
+Fn para encapsular as chamadas HTTP ao *backend*:
 
 ```javascript
-import client from 'superagent';
+import axios from 'axios';
+/*
+Inserir o numero de ip da sua máquina para se comunicar com o api-wiseelders (backend service)
+ex: http://192.10.1.1:8080/api
+*/
+const api = axios.create({
+  baseURL: 'http://172.17.0.1:8080/api',
+});
 
-class WiseEldersAPI {
-    constructor(baseAddress) {
-        this.baseAddress = baseAddress;
-        console.log(`API base address: ${this.baseAddress}`);
-    }
+export default api;
 
-    getActivities() {
-        const url = `${this.baseAddress}/activities`;
-        return client.get(url)
-            .then(res => Promise.resolve(res.body), err => Promise.reject(err));
-    }
-}
 ```
 
 Chamadas assíncronas utilizando Redux e Redux Thunk:

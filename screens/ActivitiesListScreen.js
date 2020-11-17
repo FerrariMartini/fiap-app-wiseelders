@@ -8,11 +8,6 @@ import { Card } from 'react-native-elements';
 import Screen from '../components/Screen';
 import ActivityCard from '../components/ActivityCard/ActivityCard';
 import { Button } from 'react-native-elements';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import ActivityDashboardScreen from '../screens/ActivityDashboardScreen';
-
-const Tab = createBottomTabNavigator();
 
 const ActivitiesListScreen = () => {
   const navigation = useNavigation();
@@ -25,11 +20,6 @@ const ActivitiesListScreen = () => {
     const unsubscribe = navigation.addListener('focus', load);
     return () => unsubscribe();
   }, [dispatch, navigation]);
-
-  const goDashboard = (item) => {
-    console.log('>>>>>>>>>>>>> VAI', item);
-    //ir para o 'ActivityDashboard' + item como parametro;
-  };
 
   const renderActivityEntry = ({ item }) => (
     <Card containerStyle={styles.card}>
@@ -54,7 +44,7 @@ const ActivitiesListScreen = () => {
       />
       <Button
         buttonStyle={styles.button}
-        onPress={() => goDashboard(item)}
+        onPress={() => navigation.navigate('ActivityDashboard', item)}
         title="Ver Detalhes"
       />
     </Card>
